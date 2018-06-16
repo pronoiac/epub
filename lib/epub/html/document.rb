@@ -56,7 +56,7 @@ module EPUB
 				when 'a'
 					new_node = A.new(attrs)
 				when 'span'
-					new_node = SPAN.new
+					new_node = SPAN.new(attrs)
 				when 'em', 'i'
 					new_node = EM.new
 				when 'strong', 'b'
