@@ -85,6 +85,7 @@ module EPUB
 			count = 0
 			
 			spine_items.each do |html_item|
+				next if html_item.nil?
 				file = @archive.get(@rootpath + html_item[:href])
 				
 				if !file
