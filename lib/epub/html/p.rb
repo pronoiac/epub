@@ -12,9 +12,20 @@ module EPUB
 					return []
 				end
 				
-				output = ["#{output}\n"]
-				attributes.each do |attr|
-					output << "#{attr}\n"
+				p_class = attributes[1]
+				case p_class
+				when '{:.textfl}'
+					# after header. add extra line before.
+					output = ["\n#{output}\n"]
+				when '{:.quote}'
+					output = ["> #{output}\n"]
+				when '{:.bulllist}'
+					output = ["* #{output}\n"]
+				when '{:.para_indented}', '{:.text}', nil
+					# passthrough
+					output = ["#{output}\n"]
+				else
+					output = ["#{output}\n!!!(p) #{p_class}\n"]
 				end
 				output << "\n"
 				
