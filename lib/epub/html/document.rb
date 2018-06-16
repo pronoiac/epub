@@ -63,6 +63,12 @@ module EPUB
 					new_node = STRONG.new
 				when 'img'
 					new_node = IMG.new(get_attr('src', attrs), get_attr('alt', attrs))
+				when 'table'
+						new_node = TABLE.new(attrs)
+				when 'tr'
+						new_node = TR.new(attrs)
+				when 'td'
+						new_node = TD.new(attrs)
 				else
 					new_node = Generic.new(name)
 				end
