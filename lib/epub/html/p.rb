@@ -7,6 +7,7 @@ module EPUB
 			
 			def render
 				output = strip(super.join(''))
+				output.gsub!(/([.!?])\s+/, "\\1\n") # one sentence per line
 				
 				if output.length == 0
 					return []
