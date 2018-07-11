@@ -22,7 +22,8 @@ module EPUB
 					output = ["> #{output}\n"]
 				when '{:.bulllist}'
 					output = ["* #{output}\n"]
-				when '{:.para_indented}', '{:.text}', nil
+				when '{:.para_indented}', '{:.text}', '{:.unnumlist}',
+					'{:.unnumlist1}', nil
 					# passthrough
 					output = ["#{output}\n"]
 				else
