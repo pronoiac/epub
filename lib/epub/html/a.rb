@@ -25,11 +25,13 @@ module EPUB
 				
 				output = []
 				
-				output << "[#{string}](#{href})"
-				
-				attributes.each do |attr|
-					output << attr
+				unless href.empty? or string == " "
+					output << "[#{string}](#{href})"
 				end
+				
+				# attributes.each do |attr|
+				# 	output << attr
+				# end
 				
 				[output.join('')]
 			end
