@@ -7,7 +7,10 @@ module EPUB
 			
 			def render
 				output = strip(super.join(''))
-				output.gsub!(/(\S[.!?])\s+/, "\\1\n") # one sentence per line
+				# it looks like this is roughly one a para, not per chapter
+				unless output.match('^( | )*`.*`$') # skip code lines
+					output.gsub!(/(\S[.!?])\s+/, "\\1\n") # one sentence per line
+				end
 				
 				if output.length == 0
 					return []
